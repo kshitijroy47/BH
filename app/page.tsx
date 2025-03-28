@@ -35,20 +35,22 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Image src="/images/vikriti-logo.png" alt="Vikriti Logo" width={40} height={40} className="h-8 w-auto" />
-            <span className="text-xl font-bold text-[#137b58]">Vikriti</span>
+            <Link href="/" className="flex items-center gap-2">
+              <Image src="/images/vikriti-logo.png" alt="Vikriti Logo" width={40} height={40} className="h-8 w-auto" />
+              <span className="text-xl font-bold text-[#137b58]">Vikriti</span>
+            </Link>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="#features" className="text-sm font-medium hover:text-[#137b58]">
+            <Link href="#features" className="text-sm font-medium hover:text-[#137b58] scroll-smooth">
               Features
             </Link>
-            <Link href="#products" className="text-sm font-medium hover:text-[#137b58]">
+            <Link href="#products" className="text-sm font-medium hover:text-[#137b58] scroll-smooth">
               Products
             </Link>
-            <Link href="#blog" className="text-sm font-medium hover:text-[#137b58]">
+            <Link href="#blog" className="text-sm font-medium hover:text-[#137b58] scroll-smooth">
               Blog
             </Link>
-            <Link href="#about" className="text-sm font-medium hover:text-[#137b58]">
+            <Link href="#about" className="text-sm font-medium hover:text-[#137b58] scroll-smooth">
               About Us
             </Link>
           </nav>
@@ -124,10 +126,13 @@ export default function LandingPage() {
             </section>
 
             {/* Features Section */}
-            <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+            <section id="features" className="w-full py-12 md:py-24 lg:py-32">
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                   <div className="space-y-2">
+                    <h2 className="section-heading">
+                      Features
+                    </h2>
                     <div className="inline-block rounded-lg bg-[#137b58] px-3 py-1 text-sm text-white">Features</div>
                     <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#137b58]">
                       Everything you need to succeed
@@ -184,226 +189,216 @@ export default function LandingPage() {
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                   <div className="space-y-2">
-                    <div className="inline-block rounded-lg bg-[#137b58] px-3 py-1 text-sm text-white">
+                    <h2 className="section-heading">
                       Testimonials
-                    </div>
-                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#137b58]">
-                      Loved by businesses worldwide
                     </h2>
-                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                      Don't just take our word for it. See what our customers have to say about Vikriti.
-                    </p>
                   </div>
-                </div>
-                <div className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-                  <Card>
-                    <CardHeader>
-                      <div className="flex items-center gap-4">
-                        <Image
-                          src="/placeholder.svg?height=40&width=40"
-                          width={40}
-                          height={40}
-                          alt="Avatar"
-                          className="rounded-full"
-                        />
-                        <div>
-                          <CardTitle className="text-base text-[#137b58]">Sarah Johnson</CardTitle>
-                          <CardDescription>Marketing Director, TechCorp</CardDescription>
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <Card className="card">
+                      <CardHeader>
+                        <div className="flex items-center gap-4">
+                          <Image
+                            src="/placeholder.svg?height=40&width=40"
+                            width={40}
+                            height={40}
+                            alt="Avatar"
+                            className="rounded-full"
+                          />
+                          <div>
+                            <CardTitle className="text-base text-[#137b58]">Sarah Johnson</CardTitle>
+                            <CardDescription>Marketing Director, TechCorp</CardDescription>
+                          </div>
                         </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
-                        "Vikriti has completely transformed how our marketing team operates. The analytics tools are
-                        incredible, and the collaboration features have boosted our productivity by 30%."
-                      </p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardHeader>
-                      <div className="flex items-center gap-4">
-                        <Image
-                          src="/placeholder.svg?height=40&width=40"
-                          width={40}
-                          height={40}
-                          alt="Avatar"
-                          className="rounded-full"
-                        />
-                        <div>
-                          <CardTitle className="text-base text-[#137b58]">Michael Chen</CardTitle>
-                          <CardDescription>CTO, InnovateCo</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">
+                          "Vikriti has completely transformed how our marketing team operates. The analytics tools are
+                          incredible, and the collaboration features have boosted our productivity by 30%."
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card className="card">
+                      <CardHeader>
+                        <div className="flex items-center gap-4">
+                          <Image
+                            src="/placeholder.svg?height=40&width=40"
+                            width={40}
+                            height={40}
+                            alt="Avatar"
+                            className="rounded-full"
+                          />
+                          <div>
+                            <CardTitle className="text-base text-[#137b58]">Michael Chen</CardTitle>
+                            <CardDescription>CTO, InnovateCo</CardDescription>
+                          </div>
                         </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
-                        "As a tech company, security is our top priority. Vikriti's enterprise-grade security features
-                        give us peace of mind, and the platform's scalability has supported our rapid growth."
-                      </p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardHeader>
-                      <div className="flex items-center gap-4">
-                        <Image
-                          src="/placeholder.svg?height=40&width=40"
-                          width={40}
-                          height={40}
-                          alt="Avatar"
-                          className="rounded-full"
-                        />
-                        <div>
-                          <CardTitle className="text-base text-[#137b58]">Emily Rodriguez</CardTitle>
-                          <CardDescription>Founder, StartupX</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">
+                          "As a tech company, security is our top priority. Vikriti's enterprise-grade security features
+                          give us peace of mind, and the platform's scalability has supported our rapid growth."
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card className="card">
+                      <CardHeader>
+                        <div className="flex items-center gap-4">
+                          <Image
+                            src="/placeholder.svg?height=40&width=40"
+                            width={40}
+                            height={40}
+                            alt="Avatar"
+                            className="rounded-full"
+                          />
+                          <div>
+                            <CardTitle className="text-base text-[#137b58]">Emily Rodriguez</CardTitle>
+                            <CardDescription>Founder, StartupX</CardDescription>
+                          </div>
                         </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
-                        "Vikriti has been a game-changer for our startup. The intuitive interface and comprehensive
-                        features have helped us compete with much larger companies in our industry."
-                      </p>
-                    </CardContent>
-                  </Card>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">
+                          "Vikriti has been a game-changer for our startup. The intuitive interface and comprehensive
+                          features have helped us compete with much larger companies in our industry."
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
               </div>
             </section>
 
             {/* Pricing Section */}
-            <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+            <section className="w-full py-12 md:py-24 lg:py-32">
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                   <div className="space-y-2">
-                    <div className="inline-block rounded-lg bg-[#137b58] px-3 py-1 text-sm text-white">Pricing</div>
-                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#137b58]">
-                      Simple, transparent pricing
+                    <h2 className="section-heading">
+                      Pricing
                     </h2>
-                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                      Choose the plan that's right for your business. All plans include a 14-day free trial.
-                    </p>
                   </div>
-                </div>
-                <div className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-3">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-[#137b58]">Starter</CardTitle>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-bold text-[#137b58]">$29</span>
-                        <span className="text-muted-foreground">/month</span>
-                      </div>
-                      <CardDescription>Perfect for small teams and startups</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Up to 5 team members</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Basic analytics</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>5GB storage</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Email support</span>
-                        </li>
-                      </ul>
-                    </CardContent>
-                    <CardFooter>
-                      <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
-                        Place an Order
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                  <Card className="border-[#137b58]">
-                    <CardHeader>
-                      <div className="inline-block rounded-lg bg-[#137b58] px-3 py-1 text-sm text-white mb-2">
-                        Popular
-                      </div>
-                      <CardTitle className="text-[#137b58]">Professional</CardTitle>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-bold text-[#137b58]">$79</span>
-                        <span className="text-muted-foreground">/month</span>
-                      </div>
-                      <CardDescription>Ideal for growing businesses</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Up to 20 team members</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Advanced analytics</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>20GB storage</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Priority support</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>API access</span>
-                        </li>
-                      </ul>
-                    </CardContent>
-                    <CardFooter>
-                      <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
-                        Place an Order
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-[#137b58]">Enterprise</CardTitle>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-bold text-[#137b58]">$199</span>
-                        <span className="text-muted-foreground">/month</span>
-                      </div>
-                      <CardDescription>For large organizations</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Unlimited team members</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Custom analytics</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Unlimited storage</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>24/7 dedicated support</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>Custom integrations</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-[#137b58]" />
-                          <span>SSO authentication</span>
-                        </li>
-                      </ul>
-                    </CardContent>
-                    <CardFooter>
-                      <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
-                        Contact Sales
-                      </Button>
-                    </CardFooter>
-                  </Card>
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <Card className="card">
+                      <CardHeader>
+                        <CardTitle className="text-[#137b58]">Starter</CardTitle>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-3xl font-bold text-[#137b58]">$29</span>
+                          <span className="text-muted-foreground">/month</span>
+                        </div>
+                        <CardDescription>Perfect for small teams and startups</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Up to 5 team members</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Basic analytics</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>5GB storage</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Email support</span>
+                          </li>
+                        </ul>
+                      </CardContent>
+                      <CardFooter>
+                        <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
+                          Place an Order
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                    <Card className="card">
+                      <CardHeader>
+                        <div className="inline-block rounded-lg bg-[#137b58] px-3 py-1 text-sm text-white mb-2">
+                          Popular
+                        </div>
+                        <CardTitle className="text-[#137b58]">Professional</CardTitle>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-3xl font-bold text-[#137b58]">$79</span>
+                          <span className="text-muted-foreground">/month</span>
+                        </div>
+                        <CardDescription>Ideal for growing businesses</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Up to 20 team members</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Advanced analytics</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>20GB storage</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Priority support</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>API access</span>
+                          </li>
+                        </ul>
+                      </CardContent>
+                      <CardFooter>
+                        <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
+                          Place an Order
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                    <Card className="card">
+                      <CardHeader>
+                        <CardTitle className="text-[#137b58]">Enterprise</CardTitle>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-3xl font-bold text-[#137b58]">$199</span>
+                          <span className="text-muted-foreground">/month</span>
+                        </div>
+                        <CardDescription>For large organizations</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Unlimited team members</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Custom analytics</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Unlimited storage</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>24/7 dedicated support</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>Custom integrations</span>
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-[#137b58]" />
+                            <span>SSO authentication</span>
+                          </li>
+                        </ul>
+                      </CardContent>
+                      <CardFooter>
+                        <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
+                          Contact Sales
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </div>
                 </div>
               </div>
             </section>
