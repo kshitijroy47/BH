@@ -33,24 +33,24 @@ export default function LandingPage() {
     <div className="flex min-h-screen flex-col">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-20 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
-              <Image src="/images/vikriti-logo.png" alt="Vikriti Logo" width={40} height={40} className="h-8 w-auto" />
-              <span className="text-xl font-bold text-[#137b58]">Vikriti</span>
+            <Link href="#home" className="flex items-center gap-2">
+              <Image src="/images/vikriti-logo.png" alt="Vikriti Logo" width={48} height={48} className="h-10 w-auto" />
+              <span className="text-2xl font-bold text-[#137b58]">Vikriti</span>
             </Link>
           </div>
-          <nav className="hidden md:flex gap-6">
-            <Link href="#features" className="text-sm font-medium hover:text-[#137b58] scroll-smooth">
+          <nav className="hidden md:flex gap-8">
+            <Link href="#features" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
               Features
             </Link>
-            <Link href="#products" className="text-sm font-medium hover:text-[#137b58] scroll-smooth">
+            <Link href="#products" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
               Products
             </Link>
-            <Link href="#blog" className="text-sm font-medium hover:text-[#137b58] scroll-smooth">
+            <Link href="#blog" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
               Blog
             </Link>
-            <Link href="#about" className="text-sm font-medium hover:text-[#137b58] scroll-smooth">
+            <Link href="#about" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
               About Us
             </Link>
           </nav>
@@ -79,7 +79,7 @@ export default function LandingPage() {
         ) : (
           <>
             {/* Hero Section */}
-            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+            <section id = "home" className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
               <div className="container px-4 md:px-6">
                 <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
                   <div className="flex flex-col justify-center space-y-4">
@@ -126,14 +126,13 @@ export default function LandingPage() {
             </section>
 
             {/* Features Section */}
-            <section id="features" className="w-full py-12 md:py-24 lg:py-32">
+            <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                   <div className="space-y-2">
-                    <h2 className="section-heading">
+                    <h2 className="section-heading text-6xl">
                       Features
                     </h2>
-                    <div className="inline-block rounded-lg bg-[#137b58] px-3 py-1 text-sm text-white">Features</div>
                     <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#137b58]">
                       Everything you need to succeed
                     </h2>
@@ -189,7 +188,7 @@ export default function LandingPage() {
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                   <div className="space-y-2">
-                    <h2 className="section-heading">
+                    <h2 className="section-heading text-6xl">
                       Testimonials
                     </h2>
                   </div>
@@ -269,133 +268,346 @@ export default function LandingPage() {
             </section>
 
             {/* Pricing Section */}
-            <section className="w-full py-12 md:py-24 lg:py-32">
+            <section id = "products" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                   <div className="space-y-2">
-                    <h2 className="section-heading">
-                      Pricing
+                    <h2 className="section-heading text-6xl">
+                      Products
                     </h2>
                   </div>
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="pricing-container w-full">
+                    <div className="pricing-scroll">
+                      {/* First set of cards */}
+                      <Card className="card">
+                        <CardHeader>
+                          <CardTitle className="text-[#137b58]">Biomass Pellets</CardTitle>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-2xl font-bold text-[#137b58]">₹8,000</span>
+                            <span className="text-muted-foreground">/ton</span>
+                          </div>
+                          <CardDescription>Perfect for small teams and startups</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2">
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Up to 5 team members</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Basic analytics</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>5GB storage</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Email support</span>
+                            </li>
+                          </ul>
+                        </CardContent>
+                        <CardFooter>
+                          <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
+                            Place an Order
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                      <Card className="card">
+                        <CardHeader>
+                          <CardTitle className="text-[#137b58]">Briquettes</CardTitle>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-2xl font-bold text-[#137b58]">₹7,500</span>
+                            <span className="text-muted-foreground">/ton</span>
+                          </div>
+                          <CardDescription>Ideal for growing businesses</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2">
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Up to 20 team members</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Advanced analytics</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>20GB storage</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Priority support</span>
+                            </li>
+                          </ul>
+                        </CardContent>
+                        <CardFooter>
+                          <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
+                            Place an Order
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                      <Card className="card">
+                        <CardHeader>
+                          <CardTitle className="text-[#137b58]">Raw Biomass</CardTitle>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-2xl font-bold text-[#137b58]">₹5,000</span>
+                            <span className="text-muted-foreground">/ton</span>
+                          </div>
+                          <CardDescription>For large organizations</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2">
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Unlimited team members</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Custom analytics</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Unlimited storage</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>24/7 dedicated support</span>
+                            </li>
+                          </ul>
+                        </CardContent>
+                        <CardFooter>
+                          <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
+                            Place an Order
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                      {/* Duplicate set for seamless scrolling */}
+                      <Card className="card">
+                        <CardHeader>
+                          <CardTitle className="text-[#137b58]">Starter</CardTitle>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-3xl font-bold text-[#137b58]">$29</span>
+                            <span className="text-muted-foreground">/month</span>
+                          </div>
+                          <CardDescription>Perfect for small teams and startups</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2">
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Up to 5 team members</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Basic analytics</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>5GB storage</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Email support</span>
+                            </li>
+                          </ul>
+                        </CardContent>
+                        <CardFooter>
+                          <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
+                            Place an Order
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                      <Card className="card">
+                        <CardHeader>
+                          <CardTitle className="text-[#137b58]">Professional</CardTitle>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-3xl font-bold text-[#137b58]">$79</span>
+                            <span className="text-muted-foreground">/month</span>
+                          </div>
+                          <CardDescription>Ideal for growing businesses</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2">
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Up to 20 team members</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Advanced analytics</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>20GB storage</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Priority support</span>
+                            </li>
+                          </ul>
+                        </CardContent>
+                        <CardFooter>
+                          <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
+                            Place an Order
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                      <Card className="card">
+                        <CardHeader>
+                          <CardTitle className="text-[#137b58]">Enterprise</CardTitle>
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-3xl font-bold text-[#137b58]">$199</span>
+                            <span className="text-muted-foreground">/month</span>
+                          </div>
+                          <CardDescription>For large organizations</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2">
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Unlimited team members</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Custom analytics</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>Unlimited storage</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <Check className="h-4 w-4 text-[#137b58]" />
+                              <span>24/7 dedicated support</span>
+                            </li>
+                          </ul>
+                        </CardContent>
+                        <CardFooter>
+                          <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
+                            Place an Order
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* About Section */}
+            <section id="about" className="w-full py-8 md:py-16 lg:py-20">
+              <div className="container px-4 md:px-6">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                  <div className="space-y-2">
+                    <h2 className="section-heading text-6xl">
+                      About Us
+                    </h2>
+                  </div>
+                  <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
                     <Card className="card">
                       <CardHeader>
-                        <CardTitle className="text-[#137b58]">Starter</CardTitle>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-3xl font-bold text-[#137b58]">$29</span>
-                          <span className="text-muted-foreground">/month</span>
+                        <div className="flex flex-col items-center gap-4">
+                          <Image
+                            src="/images/avipriti.jpg"
+                            width={200}
+                            height={200}
+                            alt="Videh Jha"
+                            className="rounded-lg object-cover"
+                          />
+                          <div className="text-center">
+                            <CardTitle className="text-xl text-[#137b58]">Videh Jha</CardTitle>
+                            <CardDescription className="text-base">Co-Founder</CardDescription>
+                          </div>
                         </div>
-                        <CardDescription>Perfect for small teams and startups</CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <ul className="space-y-2">
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Up to 5 team members</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Basic analytics</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>5GB storage</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Email support</span>
-                          </li>
-                        </ul>
+                        <p className="text-muted-foreground text-center">
+                          Videh Jha is a sophomore at IIT Kharagpur, pursuing a BS in Applied Geology with a strong interest in consulting, finance, and strategy. She has experience in data analysis, forex trading, and project management, along with leadership roles like Student Guide. A problem-solver with sharp analytical and communication skills, she has competed in case competitions like BCG Insight X and Deloitte GCC. She is also a part of the Technology Music Society and is eager to explore opportunities in the consulting space.
+                        </p>
                       </CardContent>
-                      <CardFooter>
-                        <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
-                          Place an Order
-                        </Button>
+                      <CardFooter className="flex justify-center gap-4">
+                        <Link href="https://www.linkedin.com/in/videhjha/" target = "_blank" className="text-[#137b58] hover:text-[#0f5e43]">
+                          <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                          </svg>
+                        </Link>
+                        <Link href="#" className="text-[#137b58] hover:text-[#0f5e43]">
+                          <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                          </svg>
+                        </Link>
                       </CardFooter>
                     </Card>
+
                     <Card className="card">
                       <CardHeader>
-                        <div className="inline-block rounded-lg bg-[#137b58] px-3 py-1 text-sm text-white mb-2">
-                          Popular
+                        <div className="flex flex-col items-center gap-4">
+                          <Image
+                            src="/images/rohit.jpg"
+                            width={200}
+                            height={200}
+                            alt="Akshat Mittal"
+                            className="rounded-lg object-cover"
+                          />
+                          <div className="text-center">
+                            <CardTitle className="text-xl text-[#137b58]">Akshat Mittal</CardTitle>
+                            <CardDescription className="text-base">Co-Founder</CardDescription>
+                          </div>
                         </div>
-                        <CardTitle className="text-[#137b58]">Professional</CardTitle>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-3xl font-bold text-[#137b58]">$79</span>
-                          <span className="text-muted-foreground">/month</span>
-                        </div>
-                        <CardDescription>Ideal for growing businesses</CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <ul className="space-y-2">
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Up to 20 team members</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Advanced analytics</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>20GB storage</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Priority support</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>API access</span>
-                          </li>
-                        </ul>
+                        <p className="text-muted-foreground text-center">
+                          Akshat Mittal is a second-year student pursuing bachelors at IIT Kharagpur. He is fervently engaged in entrepreneurship and venture capital, serving as Associate Manager in the Entrepreneurship Cell, IIT Kharagpur, where he oversees the portfolios of Competitions & Associations as well as Finance and Logistics. He has been the Secretary for sports in IIT Kharagpur itself marking his skills of leadership.
+                        </p>
                       </CardContent>
-                      <CardFooter>
-                        <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
-                          Place an Order
-                        </Button>
+                      <CardFooter className="flex justify-center gap-4">
+                        <Link href="https://www.linkedin.com/in/akshatmittal05/" target = "_blank" className="text-[#137b58] hover:text-[#0f5e43]">
+                          <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                          </svg>
+                        </Link>
+                        <Link href="#" className="text-[#137b58] hover:text-[#0f5e43]">
+                          <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                          </svg>
+                        </Link>
                       </CardFooter>
                     </Card>
+
                     <Card className="card">
                       <CardHeader>
-                        <CardTitle className="text-[#137b58]">Enterprise</CardTitle>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-3xl font-bold text-[#137b58]">$199</span>
-                          <span className="text-muted-foreground">/month</span>
+                        <div className="flex flex-col items-center gap-4">
+                          <Image
+                            src="/images/tuhina.jpg"
+                            width={200}
+                            height={200}
+                            alt="Moulik Mishra"
+                            className="rounded-lg object-cover"
+                          />
+                          <div className="text-center">
+                            <CardTitle className="text-xl text-[#137b58]">Moulik Mishra</CardTitle>
+                            <CardDescription className="text-base">Co-Founder</CardDescription>
+                          </div>
                         </div>
-                        <CardDescription>For large organizations</CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <ul className="space-y-2">
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Unlimited team members</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Custom analytics</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Unlimited storage</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>24/7 dedicated support</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>Custom integrations</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <Check className="h-4 w-4 text-[#137b58]" />
-                            <span>SSO authentication</span>
-                          </li>
-                        </ul>
+                        <p className="text-muted-foreground text-center">
+                          Moulik Mishra is a second-year student pursuing Exploration Geophysics at IIT Kharagpur. With a keen interest in strategy, finance, and consulting, she thrives at the intersection of business and technology. As a Manager at SHARE IIT Kharagpur, she leads a team in solving real-world business challenges through data-driven insights and analytical problem-solving. Beyond academics, she is passionate about leveraging technology for sustainable and efficient business models.
+                        </p>
                       </CardContent>
-                      <CardFooter>
-                        <Button className="w-full" style={{ backgroundColor: "#137b58" }}>
-                          Contact Sales
-                        </Button>
+                      <CardFooter className="flex justify-center gap-4">
+                        <Link href="https://www.linkedin.com/in/moulik-mishra-722120274/" target = "_blank" className="text-[#137b58] hover:text-[#0f5e43]">
+                          <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                          </svg>
+                        </Link>
+                        <Link href="#" className="text-[#137b58] hover:text-[#0f5e43]">
+                          <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                          </svg>
+                        </Link>
                       </CardFooter>
                     </Card>
                   </div>
@@ -404,7 +616,7 @@ export default function LandingPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="w-full py-12 md:py-24 lg:py-32">
+            <section id = "about" className="w-full py-12 md:py-24 lg:py-32">
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                   <div className="space-y-2">
