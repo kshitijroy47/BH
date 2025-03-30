@@ -9,13 +9,9 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 const biomassTypes = [
-  "Agricultural Residue",
-  "Forestry Waste",
-  "Energy Crops",
-  "Food Waste",
-  "Animal Waste",
-  "Municipal Solid Waste",
-  "Algae",
+  "Raw Biomass",
+  "Briquettes",
+  "Biomass Pellets "
 ]
 
 // Remove the Card wrapper since it's now in a Dialog
@@ -125,18 +121,7 @@ export function OrderForm({
             onChange={(e) => setDeliveryLocation(e.target.value)}
             required
           />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="deliveryDate">Delivery Date</Label>
-          <Input
-            id="deliveryDate"
-            type="date"
-            value={deliveryDate}
-            onChange={(e) => setDeliveryDate(e.target.value)}
-            required
-          />
-        </div>
+        </div> 
 
         <div className="pt-2 flex justify-end space-x-2">
           <Button type="button" variant="outline" onClick={onCancel}>

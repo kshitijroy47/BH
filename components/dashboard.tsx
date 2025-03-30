@@ -69,11 +69,11 @@ export function Dashboard({ userName = "User" }: { userName?: string }) {
             </Card>
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+                <CardTitle className="text-sm font-medium">Carbon Emission Reduced</CardTitle>
                 <TrendingUp className="h-4 w-4 text-[#137b58]" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">₹{(Math.random() * 100000 + 40000).toFixed(2)}</div>
+                <div className="text-2xl font-bold">{(Math.random() * 100 + 4000).toFixed(2)} MTCO2</div>
                 <p className="text-xs text-muted-foreground">+15% from last month</p>
               </CardContent>
             </Card>

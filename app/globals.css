@@ -170,8 +170,9 @@ body {
 .pricing-scroll {
   display: flex;
   gap: 2rem;
-  animation: scroll 30s linear infinite;
-  padding: 0 1rem;
+  animation: scroll 20s linear infinite;
+  padding: 2rem 0;
+  width: fit-content;
 }
 
 .pricing-scroll:hover {
@@ -185,4 +186,9 @@ body {
   100% {
     transform: translateX(calc(-50% - 1rem));
   }
+}
+
+/* Add a duplicate set of cards for seamless scrolling */
+.pricing-scroll > * {
+  flex-shrink: 0;
 }

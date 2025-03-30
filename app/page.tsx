@@ -13,6 +13,15 @@ import { LoginForm } from "@/components/login-form"
 export default function LandingPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [showLoginDialog, setShowLoginDialog] = useState(false)
+  const [expandedFaqs, setExpandedFaqs] = useState<number[]>([])
+
+  const toggleFaq = (index: number) => {
+    setExpandedFaqs(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    )
+  }
 
   const handleLoginSuccess = () => {
     setIsLoggedIn(true)
@@ -32,7 +41,7 @@ export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-20 items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="#home" className="flex items-center gap-2">
@@ -41,17 +50,20 @@ export default function LandingPage() {
             </Link>
           </div>
           <nav className="hidden md:flex gap-8">
+            <Link href="#about" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
+              About
+            </Link>
             <Link href="#features" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
               Features
             </Link>
             <Link href="#products" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
               Products
             </Link>
-            <Link href="#blog" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
-              Blog
+            <Link href="#faq" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
+              FAQ
             </Link>
-            <Link href="#about" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
-              About Us
+            <Link href="#team" className="text-base font-medium hover:text-[#137b58] scroll-smooth">
+              Our Team
             </Link>
           </nav>
           <div className="flex items-center gap-4">
@@ -79,15 +91,25 @@ export default function LandingPage() {
         ) : (
           <>
             {/* Hero Section */}
-            <section id = "home" className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-              <div className="container px-4 md:px-6">
-                <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+            <section id="home" className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48">
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/images/wheat-field.jpg"
+                  alt="Wheat Field Background"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-black/40" />
+              </div>
+              <div className="container relative z-10 px-4 md:px-6">
+                <div className="grid gap-6 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_700px]">
                   <div className="flex flex-col justify-center space-y-4">
                     <div className="space-y-2">
-                      <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-[#137b58]">
+                      <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
                         Solving for your biomass-related needs at your fingertips
                       </h1>
-                      <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                      <p className="max-w-[600px] text-gray-200 md:text-xl">
                         We connect farmers with industries like biofuels, biofertilizers, and biochemicals, ensuring
                         fair pricing, seamless logistics, and sustainable solutions for a greener future.
                       </p>
@@ -95,32 +117,79 @@ export default function LandingPage() {
                     <div className="flex flex-col gap-2 min-[400px]:flex-row">
                       <Button
                         size="lg"
-                        className="gap-1"
-                        style={{ backgroundColor: "#137b58" }}
+                        className="gap-1 bg-[#137b58] text-white hover:bg-white hover:text-[#137b58]"
                         onClick={handleOrderClick}
                       >
                         Place an Order <ChevronRight className="h-4 w-4" />
                       </Button>
-                      <Button size="lg" variant="outline" className="border-[#137b58] text-[#137b58]">
-                        Learn More
+                      <a href="#about">
+                      <Button
+                        size="lg"
+                        className="gap-1 bg-[#137b58] text-white hover:bg-white hover:text-[#137b58]"
+                      >
+                        Learn More <ChevronRight className="h-4 w-4" />
                       </Button>
+                      </a>
                     </div>
                     <div className="flex items-center gap-1 text-sm">
-                      <Star className="h-4 w-4 fill-[#137b58] text-[#137b58]" />
-                      <Star className="h-4 w-4 fill-[#137b58] text-[#137b58]" />
-                      <Star className="h-4 w-4 fill-[#137b58] text-[#137b58]" />
-                      <Star className="h-4 w-4 fill-[#137b58] text-[#137b58]" />
-                      <Star className="h-4 w-4 fill-[#137b58] text-[#137b58]" />
-                      <span className="ml-2 text-muted-foreground">Trusted by over 10,000+ farmers worldwide</span>
+                      <Star className="h-4 w-4 fill-white text-white" />
+                      <Star className="h-4 w-4 fill-white text-white" />
+                      <Star className="h-4 w-4 fill-white text-white" />
+                      <Star className="h-4 w-4 fill-white text-white" />
+                      <Star className="h-4 w-4 fill-white text-white" />
+                      <span className="ml-2 text-gray-200">Trusted by over 10,000+ farmers worldwide</span>
                     </div>
                   </div>
-                  <Image
-                    src="/placeholder.svg?height=550&width=550"
-                    width={550}
-                    height={550}
-                    alt="Hero Image"
-                    className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
-                  />
+                  <div className="relative z-10 mx-auto overflow-hidden rounded-[2rem] bg-white/5 backdrop-blur-sm p-8 sm:w-full lg:order-last shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-shadow duration-300">
+                    <Image
+                      src="/images/HS2.jpg"
+                      width={1200}
+                      height={1200}
+                      alt="Hero Image"
+                      className="object-contain w-full h-full rounded-[1.5rem]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Vikriti Section */}
+            <section id="about" className="w-full py-12 md:py-24 lg:py-32">
+              <div className="container px-4 md:px-6">
+                <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-12">
+                  <div className="relative w-[650px] h-[600px]">
+                    <Image
+                      src="/images/PR.jpeg"
+                      width={500}
+                      height={500}
+                      alt="Vikriti Device"
+                      className="absolute top-0 left-0 rounded-lg object-cover w-[500px] h-[400px] shadow-[0_8px_30px_rgba(0,0,0,0.9)]"
+                    />
+                    <Image
+                      src="/images/farmer.png"
+                      width={250}
+                      height={250}
+                      alt="Vikriti Device"
+                      className="absolute bottom-20 right-0 rounded-lg object-cover w-[300px] h-[300px] shadow-[0_8px_30px_rgba(0,0,0,0.9)] z-10"
+                    />
+                  </div>
+                  <div className="flex flex-col top-2 space-y-4 ">
+                    <span className="text-[#00A76F] text-2xl">HARVEST. PROCESS. DELIVER. SUSTAIN.</span>
+                    <div className="space-y-7">
+                      <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-7xl/none">
+                        What is Vikriti?
+                      </h2>
+                      <p className="max-w-[600px] text-muted-foreground md:text-xl leading-loose mb-8">
+                        Introducing Vikriti, a digital platform that aims to facilitate streamlined access
+                        to the biomass supply chain for farmers as well as industries, with quality
+                        assurance solutions for industries like Biofuel producers, Biofertilizer factories,
+                        Biochemical producers, among others.
+                      </p>
+                      <p className="max-w-[600px] text-muted-foreground md:text-xl leading-loose">
+                        We seek to connect multiple industrial entities with a direct, reliable, and consistent supply of agricultural biomass, reducing inefficiencies and ensuring sustainability. By leveraging technology, Vikriti optimizes procurement, processing, and delivery, creating a seamless ecosystem for all stakeholders.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -146,7 +215,7 @@ export default function LandingPage() {
                   <Card>
                     <CardHeader>
                       <LineChart className="h-10 w-10 text-[#137b58]" />
-                      <CardTitle className="mt-4 text-[#137b58]">Advanced Analytics</CardTitle>
+                      <CardTitle className="mt-4 text-[#137b58]">Year Round Supply</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground">
@@ -158,7 +227,7 @@ export default function LandingPage() {
                   <Card>
                     <CardHeader>
                       <MessageSquare className="h-10 w-10 text-[#137b58]" />
-                      <CardTitle className="mt-4 text-[#137b58]">Team Collaboration</CardTitle>
+                      <CardTitle className="mt-4 text-[#137b58]">Quality Grading</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground">
@@ -170,7 +239,7 @@ export default function LandingPage() {
                   <Card>
                     <CardHeader>
                       <Shield className="h-10 w-10 text-[#137b58]" />
-                      <CardTitle className="mt-4 text-[#137b58]">Enterprise Security</CardTitle>
+                      <CardTitle className="mt-4 text-[#137b58]">Competitive Pricing</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground">
@@ -183,92 +252,60 @@ export default function LandingPage() {
               </div>
             </section>
 
-            {/* Testimonials Section */}
-            <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
+            {/* Mission and Vision Section */}
+            <section className="w-full py-12 md:py-24 lg:py-32">
               <div className="container px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                  <div className="space-y-2">
-                    <h2 className="section-heading text-6xl">
-                      Testimonials
-                    </h2>
+                <div className="flex items-center gap-16">
+                  {/* Logo and Semi-circular Text */}
+                  <div className="relative w-[400px] h-[400px] flex-shrink-0">
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2">
+                      {/* Logo */}
+                      <Image
+                        src="/images/vikriti-logo.png"
+                        width={300}
+                        height={300}
+                        alt="Vikriti Logo"
+                        className="w-[300px] h-[300px] object-contain"
+                      />
+                      {/* Semi-circular Text Band */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border-4 border-[#137b58]/20 rounded-full">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-[#137b58] bg-white px-4">
+                          Vikriti
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <Card className="card">
-                      <CardHeader>
-                        <div className="flex items-center gap-4">
-                          <Image
-                            src="/placeholder.svg?height=40&width=40"
-                            width={40}
-                            height={40}
-                            alt="Avatar"
-                            className="rounded-full"
-                          />
-                          <div>
-                            <CardTitle className="text-base text-[#137b58]">Sarah Johnson</CardTitle>
-                            <CardDescription>Marketing Director, TechCorp</CardDescription>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground">
-                          "Vikriti has completely transformed how our marketing team operates. The analytics tools are
-                          incredible, and the collaboration features have boosted our productivity by 30%."
+
+                  {/* Cards Container */}
+                  <div className="flex-1 flex flex-col gap-8">
+                    {/* Mission Card */}
+                    <div className="flex items-start gap-4 rounded-2xl bg-[#2065D1]/10 p-8 relative">
+                      <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-[#2065D1]"></div>
+                      <div className="space-y-4">
+                        <h3 className="text-3xl font-bold tracking-tighter text-[#2065D1]">Mission</h3>
+                        <p className="text-muted-foreground text-lg leading-relaxed">
+                          India produces over 800 million tonnes of agricultural residue, out of which over 250 million tonnes is burnt or wasted. Vikriti aims to solve for this 250MMT wasted residue, and strives to put the entire 800+ MMT biomass to its best utilisation, while creating value for farmers, and help India achieve its social and environmental goals.
                         </p>
-                      </CardContent>
-                    </Card>
-                    <Card className="card">
-                      <CardHeader>
-                        <div className="flex items-center gap-4">
-                          <Image
-                            src="/placeholder.svg?height=40&width=40"
-                            width={40}
-                            height={40}
-                            alt="Avatar"
-                            className="rounded-full"
-                          />
-                          <div>
-                            <CardTitle className="text-base text-[#137b58]">Michael Chen</CardTitle>
-                            <CardDescription>CTO, InnovateCo</CardDescription>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground">
-                          "As a tech company, security is our top priority. Vikriti's enterprise-grade security features
-                          give us peace of mind, and the platform's scalability has supported our rapid growth."
+                      </div>
+                    </div>
+
+                    {/* Vision Card */}
+                    <div className="flex items-start gap-4 rounded-2xl bg-[#00A76F]/10 p-8 relative">
+                      <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-[#00A76F]"></div>
+                      <div className="space-y-4">
+                        <h3 className="text-3xl font-bold tracking-tighter text-[#00A76F]">Vision</h3>
+                        <p className="text-muted-foreground text-lg leading-relaxed">
+                          Vikriti envisions a future where every unit of biomass produced in India is efficiently utilized, ensuring minimal waste and maximum value creation for all stakeholders. By building a robust and transparent supply chain, we aim to empower farmers with better income opportunities while providing industries with a consistent and high-quality biomass supply.
                         </p>
-                      </CardContent>
-                    </Card>
-                    <Card className="card">
-                      <CardHeader>
-                        <div className="flex items-center gap-4">
-                          <Image
-                            src="/placeholder.svg?height=40&width=40"
-                            width={40}
-                            height={40}
-                            alt="Avatar"
-                            className="rounded-full"
-                          />
-                          <div>
-                            <CardTitle className="text-base text-[#137b58]">Emily Rodriguez</CardTitle>
-                            <CardDescription>Founder, StartupX</CardDescription>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground">
-                          "Vikriti has been a game-changer for our startup. The intuitive interface and comprehensive
-                          features have helped us compete with much larger companies in our industry."
-                        </p>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
 
             {/* Pricing Section */}
-            <section id = "products" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+            <section id="products" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                   <div className="space-y-2">
@@ -282,6 +319,15 @@ export default function LandingPage() {
                       <Card className="card">
                         <CardHeader>
                           <CardTitle className="text-[#137b58]">Biomass Pellets</CardTitle>
+                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                            <Image
+                              src="/images/Pellets.jpg"
+                              alt="Biomass Pellets"
+                              width={128}
+                              height={128}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                           <div className="flex items-baseline gap-1">
                             <span className="text-2xl font-bold text-[#137b58]">₹8,000</span>
                             <span className="text-muted-foreground">/ton</span>
@@ -317,6 +363,15 @@ export default function LandingPage() {
                       <Card className="card">
                         <CardHeader>
                           <CardTitle className="text-[#137b58]">Briquettes</CardTitle>
+                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                            <Image
+                              src="/images/Briquettes.jpg"
+                              alt="Briquettes"
+                              width={128}
+                              height={128}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                           <div className="flex items-baseline gap-1">
                             <span className="text-2xl font-bold text-[#137b58]">₹7,500</span>
                             <span className="text-muted-foreground">/ton</span>
@@ -352,6 +407,15 @@ export default function LandingPage() {
                       <Card className="card">
                         <CardHeader>
                           <CardTitle className="text-[#137b58]">Raw Biomass</CardTitle>
+                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                            <Image
+                              src="/images/Raw.jpg"
+                              alt="Raw Biomass"
+                              width={128}
+                              height={128}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                           <div className="flex items-baseline gap-1">
                             <span className="text-2xl font-bold text-[#137b58]">₹5,000</span>
                             <span className="text-muted-foreground">/ton</span>
@@ -387,10 +451,19 @@ export default function LandingPage() {
                       {/* Duplicate set for seamless scrolling */}
                       <Card className="card">
                         <CardHeader>
-                          <CardTitle className="text-[#137b58]">Starter</CardTitle>
+                          <CardTitle className="text-[#137b58]">Biomass Pellets</CardTitle>
+                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                            <Image
+                              src="/images/Pellets.jpg"
+                              alt="Biomass Pellets"
+                              width={128}
+                              height={128}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-3xl font-bold text-[#137b58]">$29</span>
-                            <span className="text-muted-foreground">/month</span>
+                            <span className="text-2xl font-bold text-[#137b58]">₹8,000</span>
+                            <span className="text-muted-foreground">/ton</span>
                           </div>
                           <CardDescription>Perfect for small teams and startups</CardDescription>
                         </CardHeader>
@@ -422,10 +495,19 @@ export default function LandingPage() {
                       </Card>
                       <Card className="card">
                         <CardHeader>
-                          <CardTitle className="text-[#137b58]">Professional</CardTitle>
+                          <CardTitle className="text-[#137b58]">Briquettes</CardTitle>
+                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                            <Image
+                              src="/images/Briquettes.jpg"
+                              alt="Briquettes"
+                              width={128}
+                              height={128}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-3xl font-bold text-[#137b58]">$79</span>
-                            <span className="text-muted-foreground">/month</span>
+                            <span className="text-2xl font-bold text-[#137b58]">₹7,500</span>
+                            <span className="text-muted-foreground">/ton</span>
                           </div>
                           <CardDescription>Ideal for growing businesses</CardDescription>
                         </CardHeader>
@@ -457,10 +539,19 @@ export default function LandingPage() {
                       </Card>
                       <Card className="card">
                         <CardHeader>
-                          <CardTitle className="text-[#137b58]">Enterprise</CardTitle>
+                          <CardTitle className="text-[#137b58]">Raw Biomass</CardTitle>
+                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                            <Image
+                              src="/images/Raw.jpg"
+                              alt="Raw Biomass"
+                              width={128}
+                              height={128}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-3xl font-bold text-[#137b58]">$199</span>
-                            <span className="text-muted-foreground">/month</span>
+                            <span className="text-2xl font-bold text-[#137b58]">₹5,000</span>
+                            <span className="text-muted-foreground">/ton</span>
                           </div>
                           <CardDescription>For large organizations</CardDescription>
                         </CardHeader>
@@ -496,8 +587,124 @@ export default function LandingPage() {
               </div>
             </section>
 
+            {/* FAQ Section */}
+            <section id="faq" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+              <div className="container px-4 md:px-6">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                  <h2 className="section-heading text-6xl">
+                    Frequently Asked Questions
+                  </h2>
+
+                </div>
+
+                <div className="mx-auto max-w-[800px] space-y-6">
+                  {/* Question 1 */}
+                  <div className="rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+                    <div
+                      className="flex justify-between items-center cursor-pointer"
+                      onClick={() => toggleFaq(0)}
+                    >
+                      <h3 className="text-xl font-semibold">How do I place an order?</h3>
+                      <svg
+                        className={`w-6 h-6 text-gray-500 transition-transform duration-200 ${expandedFaqs.includes(0) ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    {expandedFaqs.includes(0) && (
+                      <div className="mt-4 text-gray-600">
+                        <p className="text-lg leading-relaxed">
+                          You can place an order through our website by clicking on the "Place an Order" button, specifying the type and quantity of biomass required. Our team will then contact you with the best options.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Question 2 */}
+                  <div className="rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+                    <div
+                      className="flex justify-between items-center cursor-pointer"
+                      onClick={() => toggleFaq(0)}
+                    >
+                      <h3 className="text-xl font-semibold">How do I place an order?</h3>
+                      <svg
+                        className={`w-6 h-6 text-gray-500 transition-transform duration-200 ${expandedFaqs.includes(0) ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    {expandedFaqs.includes(0) && (
+                      <div className="mt-4 text-gray-600">
+                        <p className="text-lg leading-relaxed">
+                          You can place an order through our website by clicking on the "Place an Order" button, specifying the type and quantity of biomass required. Our team will then contact you with the best options.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Question 3 */}
+                  <div className="rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+                    <div
+                      className="flex justify-between items-center cursor-pointer"
+                      onClick={() => toggleFaq(1)}
+                    >
+                      <h3 className="text-xl font-semibold">
+                        What is the difference between biomass pellets and briquettes?
+                      </h3>
+                      <svg
+                        className={`w-6 h-6 text-gray-500 transition-transform duration-200 ${expandedFaqs.includes(1) ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    {expandedFaqs.includes(1) && (
+                      <div className="mt-4 text-gray-600">
+                        <p className="text-lg leading-relaxed">
+                        Consumer wood briquettes are the ideal products for replacing traditional firewood. Since the end of the 90's, the demand for consumer wood briquettes used for home heating systems, fireplaces and wood burning stoves have increased. Driven by the global focus on renewable energy, this demand is still growing. Compared to alternatives, briquettes are both convenient, profitable and sustainable.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Question 4 */}
+                  <div className="rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+                    <div
+                      className="flex justify-between items-center cursor-pointer"
+                      onClick={() => toggleFaq(2)}
+                    >
+                      <h3 className="text-xl font-semibold">How is the biomass delivered?</h3>
+                      <svg
+                        className={`w-6 h-6 text-gray-500 transition-transform duration-200 ${expandedFaqs.includes(2) ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    {expandedFaqs.includes(2) && (
+                      <div className="mt-4 text-gray-600">
+                        <p className="text-lg leading-relaxed">
+                        We partner with a reliable logistics network to ensure timely and efficient delivery to your location. Delivery timelines vary based on order size and distance.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* About Section */}
-            <section id="about" className="w-full py-8 md:py-16 lg:py-20">
+            <section id="team" className="w-full py-8 md:py-16 lg:py-20 bg-muted">
               <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                   <div className="space-y-2">
@@ -510,11 +717,11 @@ export default function LandingPage() {
                       <CardHeader>
                         <div className="flex flex-col items-center gap-4">
                           <Image
-                            src="/images/avipriti.jpg"
-                            width={200}
-                            height={200}
+                            src="/images/VJ.jpeg"
+                            width={300}
+                            height={300}
                             alt="Videh Jha"
-                            className="rounded-lg object-cover"
+                            className="rounded-lg object-cover w-[300px] h-[300px]"
                           />
                           <div className="text-center">
                             <CardTitle className="text-xl text-[#137b58]">Videh Jha</CardTitle>
@@ -524,18 +731,17 @@ export default function LandingPage() {
                       </CardHeader>
                       <CardContent>
                         <p className="text-muted-foreground text-center">
-                          Videh Jha is a sophomore at IIT Kharagpur, pursuing a BS in Applied Geology with a strong interest in consulting, finance, and strategy. She has experience in data analysis, forex trading, and project management, along with leadership roles like Student Guide. A problem-solver with sharp analytical and communication skills, she has competed in case competitions like BCG Insight X and Deloitte GCC. She is also a part of the Technology Music Society and is eager to explore opportunities in the consulting space.
-                        </p>
+                          Videh Jha is a sophomore at IIT Kharagpur, pursuing BTech in Mechanical Engineering with a strong interest in consulting, finance, and strategy. He has experience in data analysis, forex trading, and project management, along with leadership roles like Student Guide. A problem-solver with sharp analytical and communication skills, he has competed in case competitions like BCG Insight X and many more.</p>
                       </CardContent>
                       <CardFooter className="flex justify-center gap-4">
-                        <Link href="https://www.linkedin.com/in/videhjha/" target = "_blank" className="text-[#137b58] hover:text-[#0f5e43]">
+                        <Link href="https://www.linkedin.com/in/videhjha/" target="_blank" className="text-[#137b58] hover:text-[#0f5e43]">
                           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                           </svg>
                         </Link>
                         <Link href="#" className="text-[#137b58] hover:text-[#0f5e43]">
                           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                           </svg>
                         </Link>
                       </CardFooter>
@@ -545,11 +751,11 @@ export default function LandingPage() {
                       <CardHeader>
                         <div className="flex flex-col items-center gap-4">
                           <Image
-                            src="/images/rohit.jpg"
-                            width={200}
-                            height={200}
+                            src="/images/AM.jpeg"
+                            width={300}
+                            height={300}
                             alt="Akshat Mittal"
-                            className="rounded-lg object-cover"
+                            className="rounded-lg object-cover w-[300px] h-[300px]"
                           />
                           <div className="text-center">
                             <CardTitle className="text-xl text-[#137b58]">Akshat Mittal</CardTitle>
@@ -559,18 +765,18 @@ export default function LandingPage() {
                       </CardHeader>
                       <CardContent>
                         <p className="text-muted-foreground text-center">
-                          Akshat Mittal is a second-year student pursuing bachelors at IIT Kharagpur. He is fervently engaged in entrepreneurship and venture capital, serving as Associate Manager in the Entrepreneurship Cell, IIT Kharagpur, where he oversees the portfolios of Competitions & Associations as well as Finance and Logistics. He has been the Secretary for sports in IIT Kharagpur itself marking his skills of leadership.
+                          Akshat Mittal is a second-year student pursuing Bachelors in Economics at IIT Kharagpur. He is fervently engaged in entrepreneurship and venture capital. He has worked on market research, case studies and business strategies with startups, and has an active interest in case competitions, winning IIM Indore's Prodylitcs'24 and reaching APAC Finals of 180DC Global Case Challenge
                         </p>
                       </CardContent>
                       <CardFooter className="flex justify-center gap-4">
-                        <Link href="https://www.linkedin.com/in/akshatmittal05/" target = "_blank" className="text-[#137b58] hover:text-[#0f5e43]">
+                        <Link href="https://www.linkedin.com/in/akshatmittal05/" target="_blank" className="text-[#137b58] hover:text-[#0f5e43]">
                           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                           </svg>
                         </Link>
                         <Link href="#" className="text-[#137b58] hover:text-[#0f5e43]">
                           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                           </svg>
                         </Link>
                       </CardFooter>
@@ -580,11 +786,11 @@ export default function LandingPage() {
                       <CardHeader>
                         <div className="flex flex-col items-center gap-4">
                           <Image
-                            src="/images/tuhina.jpg"
-                            width={200}
-                            height={200}
+                            src="/images/MM.jpeg"
+                            width={300}
+                            height={300}
                             alt="Moulik Mishra"
-                            className="rounded-lg object-cover"
+                            className="rounded-lg object-cover w-[300px] h-[300px]"
                           />
                           <div className="text-center">
                             <CardTitle className="text-xl text-[#137b58]">Moulik Mishra</CardTitle>
@@ -594,53 +800,23 @@ export default function LandingPage() {
                       </CardHeader>
                       <CardContent>
                         <p className="text-muted-foreground text-center">
-                          Moulik Mishra is a second-year student pursuing Exploration Geophysics at IIT Kharagpur. With a keen interest in strategy, finance, and consulting, she thrives at the intersection of business and technology. As a Manager at SHARE IIT Kharagpur, she leads a team in solving real-world business challenges through data-driven insights and analytical problem-solving. Beyond academics, she is passionate about leveraging technology for sustainable and efficient business models.
+                          Moulik Mishra is a second-year student pursuing BTech in Biosciences and Biotechnology at IIT Kharagpur. With a keen interest in strategy, finance, and consulting, he thrives at the intersection of business and technology. As an Executive Head at 180 Degrees Consulting, IIT Kharagpur, he leads a team in solving real-world business challenges.
                         </p>
                       </CardContent>
                       <CardFooter className="flex justify-center gap-4">
-                        <Link href="https://www.linkedin.com/in/moulik-mishra-722120274/" target = "_blank" className="text-[#137b58] hover:text-[#0f5e43]">
+                        <Link href="https://www.linkedin.com/in/moulik-mishra-722120274/" target="_blank" className="text-[#137b58] hover:text-[#0f5e43]">
                           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                           </svg>
                         </Link>
                         <Link href="#" className="text-[#137b58] hover:text-[#0f5e43]">
                           <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                           </svg>
                         </Link>
                       </CardFooter>
                     </Card>
                   </div>
-                </div>
-              </div>
-            </section>
-
-            {/* CTA Section */}
-            <section id = "about" className="w-full py-12 md:py-24 lg:py-32">
-              <div className="container px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                  <div className="space-y-2">
-                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#137b58]">
-                      Ready to streamline your workflow?
-                    </h2>
-                    <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                      Join thousands of satisfied customers and take your business to the next level with Vikriti.
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                    <Button
-                      size="lg"
-                      className="gap-1"
-                      style={{ backgroundColor: "#137b58" }}
-                      onClick={handleOrderClick}
-                    >
-                      Place an Order <ChevronRight className="h-4 w-4" />
-                    </Button>
-                    <Button size="lg" variant="outline" className="border-[#137b58] text-[#137b58]">
-                      Learn More
-                    </Button>
-                  </div>
-                  <p className="text-sm text-muted-foreground">No credit card required. 14-day free trial.</p>
                 </div>
               </div>
             </section>
