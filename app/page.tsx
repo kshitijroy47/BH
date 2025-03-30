@@ -107,7 +107,7 @@ export default function LandingPage() {
                   <div className="flex flex-col justify-center space-y-4">
                     <div className="space-y-2">
                       <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
-                        Solving for your biomass-related needs at your fingertips
+                      Harvesting Sustainability for a Greener Future
                       </h1>
                       <p className="max-w-[600px] text-gray-200 md:text-xl">
                         We connect farmers with industries like biofuels, biofertilizers, and biochemicals, ensuring
@@ -136,18 +136,48 @@ export default function LandingPage() {
                       <Star className="h-4 w-4 fill-white text-white" />
                       <Star className="h-4 w-4 fill-white text-white" />
                       <Star className="h-4 w-4 fill-white text-white" />
-                      <Star className="h-4 w-4 fill-white text-white" />
                       <span className="ml-2 text-gray-200">Trusted by over 10,000+ farmers worldwide</span>
                     </div>
                   </div>
-                  <div className="relative z-10 mx-auto overflow-hidden rounded-[2rem] bg-white/5 backdrop-blur-sm p-8 sm:w-full lg:order-last shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-shadow duration-300">
-                    <Image
-                      src="/images/HS2.jpg"
-                      width={1200}
-                      height={1200}
-                      alt="Hero Image"
-                      className="object-contain w-full h-full rounded-[1.5rem]"
-                    />
+                  <div className="relative z-10 mx-auto overflow-hidden rounded-[1rem] bg-transparent backdrop-blur-sm p-4 sm:w-full lg:order-last max-w-[500px] shadow-[0_8px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-shadow duration-300">
+                    <div className="grid grid-cols-2 gap-2">
+                      {/* Top Left Image */}
+                      <div className="relative aspect-square rounded-xl overflow-hidden">
+                        <Image
+                          src="/images/Pellets.jpg"
+                          alt="Biomass Pellets"
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      {/* Top Right Image */}
+                      <div className="relative aspect-square rounded-xl overflow-hidden">
+                        <Image
+                          src="/images/Briquettes.jpg"
+                          alt="Briquettes"
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      {/* Bottom Left Image */}
+                      <div className="relative aspect-square rounded-xl overflow-hidden">
+                        <Image
+                          src="/images/Raw.jpg"
+                          alt="Raw Biomass"
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      {/* Bottom Right Image */}
+                      <div className="relative aspect-square rounded-xl overflow-hidden">
+                        <Image
+                          src="/images/BR.jpg"
+                          alt="Biomass Processing"
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -195,56 +225,65 @@ export default function LandingPage() {
             </section>
 
             {/* Features Section */}
-            <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+            <section id="features" className="w-full py-8 md:py-16 lg:py-20 bg-muted">
               <div className="container px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                  <div className="space-y-2">
+                <div className="flex flex-col items-center justify-center space-y-2 text-center">
+                  <div className="space-y-1">
                     <h2 className="section-heading text-6xl">
                       Features
                     </h2>
                     <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#137b58]">
-                      Everything you need to succeed
+                      Optimizing and Simplifying Biomass Supply
                     </h2>
-                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                      Our platform provides all the tools you need to streamline your workflow, boost productivity, and
-                      achieve your goals.
+                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto mt-2">
+                      Seamless sourcing, assured quality and the best prices - all in one platform designed for your business needs
                     </p>
                   </div>
                 </div>
-                <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-                  <Card>
+                <div className="mx-auto grid max-w-6xl items-center gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
+                  <Card className="p-4 pt-3 h-full">
                     <CardHeader>
-                      <LineChart className="h-10 w-10 text-[#137b58]" />
-                      <CardTitle className="mt-4 text-[#137b58]">Year Round Supply</CardTitle>
+                      <div className="flex items-center justify-center w-14 h-14 rounded-full bg-[#137b58]/10 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-[#137b58]">
+                          <path d="M12 22V2M2 12h20M12 22a30 30 0 0 0 8.5-2M12 22a30 30 0 0 1-8.5-2M17.5 4.5a30 30 0 0 0 0 15M6.5 4.5a30 30 0 0 1 0 15"/>
+                        </svg>
+                      </div>
+                      <CardTitle className="text-2xl font-bold text-[#137b58]">Year-Round Supply</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">
-                        Gain valuable insights with our powerful analytics tools. Track performance, identify trends,
-                        and make data-driven decisions.
+                      <p className="text-muted-foreground text-lg">
+                      Ensure a consistent and reliable biomass supply with our optimized sourcing network, reducing seasonal shortages and procurement challenges
                       </p>
                     </CardContent>
                   </Card>
-                  <Card>
+                  <Card className="p-4 pt-3 h-full">
                     <CardHeader>
-                      <MessageSquare className="h-10 w-10 text-[#137b58]" />
-                      <CardTitle className="mt-4 text-[#137b58]">Quality Grading</CardTitle>
+                      <div className="flex items-center justify-center w-14 h-14 rounded-full bg-[#137b58]/10 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-[#137b58]">
+                          <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z"/>
+                          <path d="m8 12 3 3 5-5"/>
+                        </svg>
+                      </div>
+                      <CardTitle className="text-2xl font-bold text-[#137b58]">Quality Grading</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">
-                        Work seamlessly with your team. Share files, communicate in real-time, and collaborate on
-                        projects from anywhere.
+                      <p className="text-muted-foreground text-lg">
+                      Access verified, graded biomass with real-time quality assessments, ensuring efficiency and compliance with industry standards.
                       </p>
                     </CardContent>
                   </Card>
-                  <Card>
+                  <Card className="p-4 pt-3 h-full">
                     <CardHeader>
-                      <Shield className="h-10 w-10 text-[#137b58]" />
-                      <CardTitle className="mt-4 text-[#137b58]">Competitive Pricing</CardTitle>
+                      <div className="flex items-center justify-center w-14 h-14 rounded-full bg-[#137b58]/10 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 text-[#137b58]">
+                          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                      </div>
+                      <CardTitle className="text-2xl font-bold text-[#137b58]">Competitive Pricing</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">
-                        Keep your data safe with our enterprise-grade security. End-to-end encryption, regular backups,
-                        and compliance with industry standards.
+                      <p className="text-muted-foreground text-lg">
+                      Get transparent, market-driven pricing that ensures cost efficiency while maximizing value for both suppliers and buyers.
                       </p>
                     </CardContent>
                   </Card>
@@ -255,6 +294,11 @@ export default function LandingPage() {
             {/* Mission and Vision Section */}
             <section className="w-full py-12 md:py-24 lg:py-32">
               <div className="container px-4 md:px-6">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                  <h2 className="section-heading text-6xl">
+                    What We Stand For
+                  </h2>
+                </div>
                 <div className="flex items-center gap-16">
                   {/* Logo and Semi-circular Text */}
                   <div className="relative w-[400px] h-[400px] flex-shrink-0">
@@ -305,11 +349,11 @@ export default function LandingPage() {
             </section>
 
             {/* Pricing Section */}
-            <section id="products" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+            <section id="products" className="w-full py-8 md:py-16 lg:py-24 bg-muted">
               <div className="container px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="flex flex-col items-center justify-center space-y-2 text-center">
                   <div className="space-y-2">
-                    <h2 className="section-heading text-6xl">
+                    <h2 className="section-heading text-6xl mb-8">
                       Products
                     </h2>
                   </div>
@@ -319,7 +363,7 @@ export default function LandingPage() {
                       <Card className="card">
                         <CardHeader>
                           <CardTitle className="text-[#137b58]">Biomass Pellets</CardTitle>
-                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                          <div className="w-32 h-32 mx-auto mt-12 mb-4 rounded-full overflow-hidden">
                             <Image
                               src="/images/Pellets.jpg"
                               alt="Biomass Pellets"
@@ -329,28 +373,27 @@ export default function LandingPage() {
                             />
                           </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-2xl font-bold text-[#137b58]">₹8,000</span>
+                            <span className="text-2xl font-bold text-[#137b58]">₹9,000</span>
                             <span className="text-muted-foreground">/ton</span>
                           </div>
-                          <CardDescription>Perfect for small teams and startups</CardDescription>
                         </CardHeader>
                         <CardContent>
                           <ul className="space-y-2">
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Up to 5 team members</span>
+                              <span>High Calorific Value</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Basic analytics</span>
+                              <span>Consistent Shape & Size</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>5GB storage</span>
+                              <span>Low Ash & Carbon Emissions</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Email support</span>
+                              <span>Ideal for Small-Scale Use</span>
                             </li>
                           </ul>
                         </CardContent>
@@ -363,38 +406,37 @@ export default function LandingPage() {
                       <Card className="card">
                         <CardHeader>
                           <CardTitle className="text-[#137b58]">Briquettes</CardTitle>
-                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                          <div className="w-32 h-32 mx-auto mt-12 mb-4 rounded-full overflow-hidden">
                             <Image
                               src="/images/Briquettes.jpg"
                               alt="Briquettes"
                               width={128}
-                              height={128}
+                              height={128}  
                               className="w-full h-full object-cover"
                             />
                           </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-2xl font-bold text-[#137b58]">₹7,500</span>
+                            <span className="text-2xl font-bold text-[#137b58]">₹9,000</span>
                             <span className="text-muted-foreground">/ton</span>
                           </div>
-                          <CardDescription>Ideal for growing businesses</CardDescription>
                         </CardHeader>
                         <CardContent>
                           <ul className="space-y-2">
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Up to 20 team members</span>
+                              <span>Low Moisture Content</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Advanced analytics</span>
+                              <span>Smokeless & Uniform Burning </span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>20GB storage</span>
+                              <span>Cost-Effective & Sustainable</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Priority support</span>
+                              <span>High Energy Density</span>
                             </li>
                           </ul>
                         </CardContent>
@@ -406,8 +448,8 @@ export default function LandingPage() {
                       </Card>
                       <Card className="card">
                         <CardHeader>
-                          <CardTitle className="text-[#137b58]">Raw Biomass</CardTitle>
-                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                          <CardTitle className="text-[#137b58]">Baled Biomass</CardTitle>
+                          <div className="w-32 h-32 mx-auto mt-12 mb-4 rounded-full overflow-hidden">
                             <Image
                               src="/images/Raw.jpg"
                               alt="Raw Biomass"
@@ -417,28 +459,27 @@ export default function LandingPage() {
                             />
                           </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-2xl font-bold text-[#137b58]">₹5,000</span>
+                            <span className="text-2xl font-bold text-[#137b58]">₹3,000</span>
                             <span className="text-muted-foreground">/ton</span>
                           </div>
-                          <CardDescription>For large organizations</CardDescription>
                         </CardHeader>
                         <CardContent>
                           <ul className="space-y-2">
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Unlimited team members</span>
+                              <span>Unprocessed & Natural</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Custom analytics</span>
+                              <span>Versatile Applications</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Unlimited storage</span>
+                              <span>Square bales of 1 cubic meter</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>24/7 dedicated support</span>
+                              <span> Available in Bulk</span>
                             </li>
                           </ul>
                         </CardContent>
@@ -452,7 +493,7 @@ export default function LandingPage() {
                       <Card className="card">
                         <CardHeader>
                           <CardTitle className="text-[#137b58]">Biomass Pellets</CardTitle>
-                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                          <div className="w-32 h-32 mx-auto mt-12 mb-4 rounded-full overflow-hidden">
                             <Image
                               src="/images/Pellets.jpg"
                               alt="Biomass Pellets"
@@ -462,28 +503,27 @@ export default function LandingPage() {
                             />
                           </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-2xl font-bold text-[#137b58]">₹8,000</span>
+                            <span className="text-2xl font-bold text-[#137b58]">₹9,000</span>
                             <span className="text-muted-foreground">/ton</span>
                           </div>
-                          <CardDescription>Perfect for small teams and startups</CardDescription>
                         </CardHeader>
                         <CardContent>
                           <ul className="space-y-2">
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Up to 5 team members</span>
+                              <span>High Calorific Value</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Basic analytics</span>
+                              <span>Consistent Shape & Size</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>5GB storage</span>
+                              <span>Low Ash & Carbon Emissions</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Email support</span>
+                              <span>Ideal for Small-Scale Use</span>
                             </li>
                           </ul>
                         </CardContent>
@@ -496,38 +536,37 @@ export default function LandingPage() {
                       <Card className="card">
                         <CardHeader>
                           <CardTitle className="text-[#137b58]">Briquettes</CardTitle>
-                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                          <div className="w-32 h-32 mx-auto mt-12 mb-4 rounded-full overflow-hidden">
                             <Image
                               src="/images/Briquettes.jpg"
                               alt="Briquettes"
                               width={128}
-                              height={128}
+                              height={128}  
                               className="w-full h-full object-cover"
                             />
                           </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-2xl font-bold text-[#137b58]">₹7,500</span>
+                            <span className="text-2xl font-bold text-[#137b58]">₹9,000</span>
                             <span className="text-muted-foreground">/ton</span>
                           </div>
-                          <CardDescription>Ideal for growing businesses</CardDescription>
                         </CardHeader>
                         <CardContent>
                           <ul className="space-y-2">
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Up to 20 team members</span>
+                              <span>Low Moisture Content</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Advanced analytics</span>
+                              <span>Smokeless & Uniform Burning </span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>20GB storage</span>
+                              <span>Cost-Effective & Sustainable</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Priority support</span>
+                              <span>High Energy Density</span>
                             </li>
                           </ul>
                         </CardContent>
@@ -539,8 +578,8 @@ export default function LandingPage() {
                       </Card>
                       <Card className="card">
                         <CardHeader>
-                          <CardTitle className="text-[#137b58]">Raw Biomass</CardTitle>
-                          <div className="w-32 h-32 mx-auto my-4 rounded-full overflow-hidden">
+                          <CardTitle className="text-[#137b58]">Baled Biomass</CardTitle>
+                          <div className="w-32 h-32 mx-auto mt-12 mb-4 rounded-full overflow-hidden">
                             <Image
                               src="/images/Raw.jpg"
                               alt="Raw Biomass"
@@ -550,28 +589,27 @@ export default function LandingPage() {
                             />
                           </div>
                           <div className="flex items-baseline gap-1">
-                            <span className="text-2xl font-bold text-[#137b58]">₹5,000</span>
+                            <span className="text-2xl font-bold text-[#137b58]">₹3,000</span>
                             <span className="text-muted-foreground">/ton</span>
                           </div>
-                          <CardDescription>For large organizations</CardDescription>
                         </CardHeader>
                         <CardContent>
                           <ul className="space-y-2">
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Unlimited team members</span>
+                              <span>Unprocessed & Natural</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Custom analytics</span>
+                              <span>Versatile Applications</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>Unlimited storage</span>
+                              <span>Sqaure bales of 1 cubic meter</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <Check className="h-4 w-4 text-[#137b58]" />
-                              <span>24/7 dedicated support</span>
+                              <span> Available in Bulk</span>
                             </li>
                           </ul>
                         </CardContent>
