@@ -292,32 +292,26 @@ export default function LandingPage() {
             </section>
 
             {/* Mission and Vision Section */}
-            <section className="w-full py-12 md:py-24 lg:py-32">
-              <div className="container px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                  <h2 className="section-heading text-6xl">
-                    What We Stand For
-                  </h2>
+            <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+              <div className="container mx-auto px-4">
+                <div className="flex flex-col items-center space-y-4 mb-12">
+                  <h2 className="section-heading text-6xl text-center">What We Stand For</h2>
                 </div>
-                <div className="flex items-center gap-16">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-12">
                   {/* Logo and Semi-circular Text */}
-                  <div className="relative w-[400px] h-[400px] flex-shrink-0">
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                      {/* Logo */}
-                      <Image
-                        src="/images/vikriti-logo.png"
-                        width={300}
-                        height={300}
-                        alt="Vikriti Logo"
-                        className="w-[300px] h-[300px] object-contain"
-                      />
-                      {/* Semi-circular Text Band */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border-4 border-[#137b58]/20 rounded-full">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-[#137b58] bg-white px-4">
-                          Vikriti
-                        </div>
+                  <div className="relative w-[300px] h-[300px] flex items-center justify-center">
+                    <div className="absolute w-[350px] h-[350px] border-2 border-[#00A76F]/20 rounded-full flex items-center justify-center">
+                      <div className="absolute top-[-20px] left-1/2 -translate-x-1/2 text-4xl font-bold text-[#00A76F] bg-white px-4">
+                        Vikriti
                       </div>
                     </div>
+                    <Image
+                      src="/images/vikriti-logo.png"
+                      alt="Vikriti Logo"
+                      width={300}
+                      height={300}
+                      className="relative z-10"
+                    />
                   </div>
 
                   {/* Cards Container */}
@@ -665,9 +659,9 @@ export default function LandingPage() {
                   <div className="rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
                     <div
                       className="flex justify-between items-center cursor-pointer"
-                      onClick={() => toggleFaq(0)}
+                      onClick={() => toggleFaq(1)}
                     >
-                      <h3 className="text-xl font-semibold">How do I place an order?</h3>
+                      <h3 className="text-xl font-semibold">How do you ensure the quality of your biomass products?</h3>
                       <svg
                         className={`w-6 h-6 text-gray-500 transition-transform duration-200 ${expandedFaqs.includes(0) ? 'rotate-180' : ''}`}
                         fill="none"
@@ -677,10 +671,9 @@ export default function LandingPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
-                    {expandedFaqs.includes(0) && (
+                    {expandedFaqs.includes(1) && (
                       <div className="mt-4 text-gray-600">
-                        <p className="text-lg leading-relaxed">
-                          You can place an order through our website by clicking on the "Place an Order" button, specifying the type and quantity of biomass required. Our team will then contact you with the best options.
+                        <p className="text-lg leading-relaxed">All our biomass products undergo strict quality checks, including moisture content, calorific value, and impurity tests, to ensure high standards. We integrate processes that allow you to procure from us all round the year!You can place an order through our website by clicking on the "Place an Order" button, specifying the type and quantity of biomass required. Our team will then contact you with the best options.
                         </p>
                       </div>
                     )}
@@ -690,7 +683,7 @@ export default function LandingPage() {
                   <div className="rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
                     <div
                       className="flex justify-between items-center cursor-pointer"
-                      onClick={() => toggleFaq(1)}
+                      onClick={() => toggleFaq(2)}
                     >
                       <h3 className="text-xl font-semibold">
                         What is the difference between biomass pellets and briquettes?
@@ -704,7 +697,7 @@ export default function LandingPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
-                    {expandedFaqs.includes(1) && (
+                    {expandedFaqs.includes(2) && (
                       <div className="mt-4 text-gray-600">
                         <p className="text-lg leading-relaxed">
                         Consumer wood briquettes are the ideal products for replacing traditional firewood. Since the end of the 90's, the demand for consumer wood briquettes used for home heating systems, fireplaces and wood burning stoves have increased. Driven by the global focus on renewable energy, this demand is still growing. Compared to alternatives, briquettes are both convenient, profitable and sustainable.
@@ -717,7 +710,7 @@ export default function LandingPage() {
                   <div className="rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
                     <div
                       className="flex justify-between items-center cursor-pointer"
-                      onClick={() => toggleFaq(2)}
+                      onClick={() => toggleFaq(3)}
                     >
                       <h3 className="text-xl font-semibold">How is the biomass delivered?</h3>
                       <svg
@@ -729,7 +722,7 @@ export default function LandingPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
-                    {expandedFaqs.includes(2) && (
+                    {expandedFaqs.includes(3) && (
                       <div className="mt-4 text-gray-600">
                         <p className="text-lg leading-relaxed">
                         We partner with a reliable logistics network to ensure timely and efficient delivery to your location. Delivery timelines vary based on order size and distance.
